@@ -8,23 +8,33 @@ $user = see_user(select_by_id($id));
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
 </head>
-<body>     
+
+<body>
     <?php include "./_menu.php" ?>
     <h1>Votre profil</h1>
     <div>
-    <?= $user ?>
+        <?= $user ?>
     </div>
-
-    <!-- <form action="" method="$_REQUEST">
+    <h2>Modifiez vos informations</h2>
+    <form action="" method="$_REQUEST">
         <div>
-            <label for="username"></label>
+            <label for="new_name">Nouveau nom</label>
+            <input type="text" name="new_name">
         </div>
-    </form> -->
+        <div>
+            <label for="new_username">Nouveau Pseudo</label>
+            <input type="text" name="new_username">
+        </div>
+        <button>Validez les changements</button>
+
+    </form>
 
 </body>
+
 </html>
