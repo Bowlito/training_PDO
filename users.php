@@ -1,7 +1,7 @@
 <?php
 
 include "./trainin_services.php";
-$id = "";
+$id = $_GET['id'];
 $user = see_user(select_by_id($id));
 
 ?>
@@ -22,7 +22,7 @@ $user = see_user(select_by_id($id));
         <?= $user ?>
     </div>
     <h2>Modifiez vos informations</h2>
-    <form action="" method="$_REQUEST">
+    <form action="index.php" method="POST">
         <div>
             <label for="new_name">Nouveau nom</label>
             <input type="text" name="new_name">
@@ -31,7 +31,7 @@ $user = see_user(select_by_id($id));
             <label for="new_username">Nouveau Pseudo</label>
             <input type="text" name="new_username">
         </div>
-        <button>Validez les changements</button>
+        <button type="submit">Validez les changements</button>
 
     </form>
 

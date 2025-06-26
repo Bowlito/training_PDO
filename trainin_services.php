@@ -29,3 +29,11 @@ function see_user($user){
     return $infos;
 }
 
+function modify_this(){
+    
+    $new_username = $_POST['new_username'];
+    $new_name = $_POST['new_name'];
+    $user_id = $_GET['id'];
+        
+    return modify_infos($new_username, $new_name,$user_id);
+}

@@ -37,7 +37,7 @@ function select_all()
     }
 }
 
-function modify_infos($new_name, $new_username)
+function modify_infos($new_name, $new_username, $user_id)
 {
     $mysql_username = "root";
     $mysql_password = "";
@@ -46,10 +46,11 @@ function modify_infos($new_name, $new_username)
     try {
         $dsn = "mysql:host=localhost;port=3306;dbname=$mysql_db;charset=utf8";
         $pdo = new PDO($dsn, $mysql_username, $mysql_password);
-        $update = "UPDATE utilisateurs SET 'username' = :new_username, 'nom' = :new_name' ";
+        $update = "UPDATE utilisateurs SET username = :new_username, nom = :new_name WHERE id = :id";
         $query = $pdo->prepare($update);
-        $query->bindValue("new_username", $new_username);
-        $query->bindValue("new_name", $new_name);
+        $query->bindValue(":new_username", $new_username);
+        $query->bindValue(":new_name", $new_name);
+        $query->bindValue(":id", $user_id);
         $query->execute(); 
     } catch (PDOException $ex) {
         echo $ex->getMessage();

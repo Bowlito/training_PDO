@@ -11,3 +11,7 @@ if (str_contains($_SERVER['HTTP_REFERER'], "index.php") and $_SERVER['REQUEST_ME
     header("location: homepage.php");
     die();
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id !== null) {
+    modify_this();
+}
